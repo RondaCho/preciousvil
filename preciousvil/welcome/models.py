@@ -1,40 +1,14 @@
 from django.db import models
 from django.forms import ValidationError
-from django.core.urlresolvers import reverse
+
 
 def min_length_10_validators(value):
-    if len(value) < 10 :
+    if len(value) < 10:
         raise ValidationError('10글자 이상 입력해주세요.')
 
-class Progress(models.Model):
 
-    STATUS_CHOICES = (
-        ('d', 'Draft'),
-        ('p', 'Published'),
-        ('w', 'Withdrawn'),
-    )
-
-    title = models.CharField(max_length=100, verbose_name='제목',
-                             validators = [min_length_10_validators],
-                             help_text='본 포스팅의 제목을 입력해주세요.')
-    content = models.TextField(verbose_name='상세 내용')
-    photo = models.ImageField(upload_to='progress/%Y/%m/%d')
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
-    tag_set = models.ManyToManyField('Tag', blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now = True)
-
-    class Meta:
-        ordering = ['-id']
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('welcome:progress_detail', args=[self.id])
-
-class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-
-    def __str__(self):
-        return self.name
+class HeroImage(models.Model):
+    name = models.CharField(max_length=20, default='히어로이미지')
+    photo = models.ImageField(upload_to='hero_image/%Y/%m/%d')
+    title = models.CharField(max_length=50, default='PRECIOUS')
+    content = models.CharField(max_length=100, default='서해안을 바라보는 명품 단독형 주거단지')

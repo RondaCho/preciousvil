@@ -1,0 +1,108 @@
+{% extends "dashboard/layout.html" %}
+{% load humanize %}
+
+    {% block content %}
+
+
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">PRECIOUS DASHBOARD</h1>
+            <p class="lead text-muted">프레셔스에 거주하실 27가정의 분양현황 &
+              현장 상황을 실시간으로 전달중입니다. </p>
+            <p>
+              <a href="{% url "welcome:visitus" %}" class="btn btn-primary">분양상담 예약하기</a>
+              <a href="{% url "welcome:house" %}" class="btn btn-default"><small>타입별 특징 살펴보기</small></a>
+            </p>
+          </div>
+        </section>
+        <div class="container">
+          <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">PRECIOUS DASHBOARD</a>
+                    </div>
+
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">분양현황</a></li>
+                            <li><a href="#">현장상황</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+          </div>
+
+        <div class="container">
+          <table class="table table-hover bk-bs-table-bordered">
+            <thead>
+              <tr>
+                <th>타입</th>
+                <th>세대구분</th>
+                <th>분양/전용대지 <small>m2(py)</small></th>
+                <th>건축연면적<small>m2(py)</small></th>
+                <th>분양가<small>(천원)</small></th>
+                <th>현황</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for house in house_list %}
+                  <tr>
+                    <td class="color_{{ house.get_type_display }}" >
+                      {{ house.type }}
+                    </td>
+                    <td> {{ house.address }}</td>
+                    <td>
+                      {% widthratio house.total_land 1 3.3 %}m²  / {% widthratio house.your_land 1 3.3 %}m²
+                      <small>({{ house.total_land }}평 / {{house.your_land}}평)</small>
+                    </td>
+                    <td>
+                      {% widthratio house.get_type_display 1 3.3 %}m²
+                      <small>({{ house.get_type_display }}평)</small>
+                    </td>
+                    <td> {{ house.price|intcomma }}</td>
+                    <td>
+                      {% for house_tag in house.house_tag_set.all %}
+                        {% if house_tag.name == '분양중' %}
+                          <span class="label label-info">{{ house_tag.name }}</span>
+                        {% endif %}
+                        {% if house_tag.name == '분양완료' %}
+                          <span class="label label-danger">{{ house_tag.name }}</span>
+                        {% endif %}
+                        {% if house_tag.name == '분양예약' %}
+                          <span class="label label-warning">{{ house_tag.name }}</span>
+                        {% endif %}
+                      {% endfor %}
+                    </td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="container">
+          <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">PRECIOUS DASHBOARD</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a>분양현황</a></li>
+                            <li class="active" ><a>현장상황</a></li>
+                        </ul>
+                    </div>
+                </div>
+          </nav>
+        </div>
+
+
+    {% endblock %}

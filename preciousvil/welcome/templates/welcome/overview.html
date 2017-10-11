@@ -1,0 +1,62 @@
+{% extends "welcome/layout.html" %}
+{% load static %}
+{% block title %}
+    프레셔스개요
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="col-sm-12">
+        <img src="{% static 'welcome/logo.png' %}" alt="Precious Logo"
+             style="width:60%; height:60%; margin-left:auto; margin-right:auto; margin-top:85px; display:block;">
+        <p style="width:50%; margin-left:auto; margin-right:auto; text-align:center;font-size:12.5px;">
+            본 로고는 산, 도시와 파도의 형상을 리듬감으로 표현하였으며, 색의 향연은 서해안 낙조의 아름다운 빛과 색깔을 담아낸다.
+        </p>
+    </div>
+        <div class="col-sm-12">
+            <table class="table table-bordered table-condensed center">
+            <thead>
+            <tr class="warning">
+                <th> 프로젝트명 </th>
+                <th> <small>웨스트선셋포인트 </small> 프레셔스 </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> 대지위치 </td>
+                    <td> 김포시 대곶면 약암리 437-180 </td>
+                </tr>
+                <tr>
+                    <td> 대지면적 </td>
+                    <td> 18,684m² </td>
+                </tr>
+                <tr>
+                    <td> 주거세대 </td>
+                    <td> 27세대 단독주택 </td>
+                </tr>
+                <tr>
+                    <td> 부대시설 </td>
+                    <td> 커뮤니티시설 및 상업공간(편의점, 레스토랑, 카페) </td>
+                </tr>
+                <tr>
+                    <td> 설계자 </td>
+                    <td> 윤재은 </td>
+                </tr>
+                <tr>
+                    <td> 시행사 </td>
+                    <td> 자연애벗 주식회사 </td>
+                </tr>
+                <tr>
+                    <td> 신탁사 </td>
+                    <td> 무궁화신탁 </td>
+                </tr>
+                <tr>
+                    <td> 시공사 </td>
+                    <td>  (주) _______건설 </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+{% endblock %}

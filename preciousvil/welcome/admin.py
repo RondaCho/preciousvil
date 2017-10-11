@@ -1,3 +1,9 @@
-from django.contrib import admin
+# welcome/admin.py
 
-# Register your models here.
+from django.contrib import admin
+from django.utils.safestring import mark_safe
+from .models import HeroImage
+
+@admin.register(HeroImage)
+class HeroImageAdmin(admin.ModelAdmin):
+    list_display = ['name','photo']

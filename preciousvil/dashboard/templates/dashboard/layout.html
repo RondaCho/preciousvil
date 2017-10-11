@@ -1,10 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
-
-
-{% block extra_head %}
-    <link rel="stylesheet" href="{% static "welcome/carousel.css" %}"/>
-{% endblock %}
+{% load humanize %}
 
 {% block navbar %}
     <nav class="navbar navbar-default">
@@ -32,7 +28,7 @@
                         </ul>
                     </li>
                     <li><a href="#">Architect</a></li>
-                    <li><a href="{% url "dashboard:dashboard" %}">Dashboard</a></li>
+                    <li class="active"><a href="{% url "dashboard:dashboard" %}">Dashboard</a></li>
                     <li><a href="#"></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -43,7 +39,4 @@
             </div>
         </div>
      </nav>
-{% endblock %}
-{% block extra_js %}
-
 {% endblock %}

@@ -1,5 +1,63 @@
 
 {% extends "welcome/layout.html" %}
+{% load static %}
 
 {% block content %}
+
+  <div id="myCarousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+  <div class="item active">
+      <img src="/media/hero_image/2017/10/10/ctype.jpg" style="width:100%" class="img-responsive">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Precious Time with Family</h1>
+          <p>Pictures slide with overlapping words</p>
+          <p><a class="btn btn-primary" href="http://getbootstrap.com">Learn More</a>
+        </p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/media/hero_image/2017/10/10/skyview.jpg" style="width:100%" class="img-responsive">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Precious People in the Precious</h1>
+          <p>I just need some one to pick the pictures and words</p>
+          <p><a class="btn btn-primary" href="#">Learn more</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <img src="/media/hero_image/2017/10/10/community.jpg" style="width:100%" class="img-responsive">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Precious Lifestyle in the Precious</h1>
+          <p>This Site is fully responsive and adjusts to the size of the browser your using. Meaning that it looks great on smart-phones</p>
+          <p><a class="btn btn-primary" href="#">Browse gallery</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+</div>
+
+
+
+    <script type="text/javascript">// <![CDATA[
+    var $ = jQuery.noConflict(); $(document).ready(function()  { $('#myCarousel').carousel({ interval: 3000, cycle: true }); });
+    // ]]></script>
+
 {% endblock %}
+
