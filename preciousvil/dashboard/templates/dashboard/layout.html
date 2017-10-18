@@ -21,15 +21,25 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{% url "welcome:overview" %}">사업개요</a></li>
-                            <li><a href="{% url "welcome:house" %}">타입별소개</a></li>
+                            <li><a href="{% url "welcome:architect" %}">건축가소개</a></li>
                             <li><a href="{% url "welcome:community" %}">단지소개</a></li>
                             <li><a href="{% url "welcome:environment" %}">입지소개</a></li>
                             <li><a href="{% url "welcome:visitus" %}">상담예약 및 오시는길</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Architect</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="{% url "welcome:house" %}">Types
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url "welcome:house_a" %}">A type(192)</a></li>
+                            <li><a href="{% url "welcome:house_b" %}">B type(219) </a></li>
+                            <li><a href="{% url "welcome:house_c" %}">C type(238)</a></li>
+                            <li><a href="{% url "welcome:house_d" %}">D type(267)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url "welcome:reservation"%}">Reservation</a></li>
                     <li class="active"><a href="{% url "dashboard:dashboard" %}">Dashboard</a></li>
-                    <li><a href="#"></a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"> Community </a></li>

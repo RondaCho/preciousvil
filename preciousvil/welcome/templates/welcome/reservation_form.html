@@ -1,0 +1,21 @@
+{% extends "welcome/layout.html" %}
+{% block content %}
+{% load bootstrap3 %}
+
+{% bootstrap_javascript %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-3">
+            <hr/>
+            <h1 style="text-align:center;"> 분양관련 문의/예약하기 </h1>
+            <hr/>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %} <!--에러가 이렇게 보여짐 / 커스텀타입 -->
+                <input type="submit" class="btn btn-primary center" value="Enter"/>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

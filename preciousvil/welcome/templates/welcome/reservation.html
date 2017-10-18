@@ -1,0 +1,32 @@
+{% extends "welcome/layout.html" %}
+
+    {% block content %}
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h2 class="jumbotron-heading">PRECIOUS RESERVATION STATUS</h2>
+            <p class="lead text-muted">프레셔스 분양상담 예약 게시판입니다. </p>
+            <p>
+              <a href="{% url "welcome:reservation_new" %}" class="btn btn-primary">분양상담 예약하기</a>
+            </p>
+          </div>
+        </section>
+
+        <div class="container">
+            <table class="table table-hover table-bordered">
+                    <thead>
+                        <th>예약목록</th>
+                    </thead>
+            <tbody>
+                    {% for rsv in reservation_list %}
+                        <tr>
+                            <td>
+                                <a href="{% url "welcome:reservation_detail" rsv.id %}">
+                                {{ rsv.name }}님의 상담문의</a>는 <span class="label label-primary">{{ rsv.get_status_display }}</span> 상태이며,
+                                방문 예약일은 <strong>{{ rsv.date|date:"Y-m-d"|default:"정하는 중" }}</strong>입니다.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endblock %}

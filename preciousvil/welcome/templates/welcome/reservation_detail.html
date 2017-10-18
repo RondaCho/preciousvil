@@ -1,0 +1,54 @@
+{% extends "welcome/layout.html" %}
+{% load bootstrap3 %}
+
+{% block title %}
+    {{ reservation.name }}님 상담예약
+{% endblock %}
+
+{% block content %}
+    <section class="jumbotron text-center">
+          <div class="container">
+            <h2 class="jumbotron-heading">PRECIOUS RESERVATION DETAIL</h2>
+            <p class="lead text-muted">{{ reservation.name }}님의 예약 상세페이지입니다. </p>
+            <p>
+              <a href="{% url "welcome:house_a" %}" class="btn btn-primary">타입별 특징 살펴보기</a>
+              <a href="{% url "welcome:reservation" %}" class="btn btn-default">분양상담 예약목록</a>
+            </p>
+              추가 분양 및 상담예약 관련문의는 (상담연락처/이메일/카카오톡아이디)로 연락주세요.
+          </div>
+    </section>
+{% block verification %}
+             <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-hover table-bordered table-condensed">
+                            <thead>
+                                <tr>
+                                    <th> 예약자 </th>
+                                    <th>{{ reservation.name }}님</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> 작성일 </td>
+                                    <td>{{ reservation.updated_at|date:'Y-m-d' }}</td>
+                                </tr>
+                                <tr>
+                                    <td> 방문예약일 </td>
+                                    <td> {{ reservation.date |date:"Y-m-d"|default:'미정'}} </td>
+                                </tr>
+                                <tr>
+                                    <td><strong> 상세문의내역 </strong></td>
+                                    <td><strong> {{ reservation.detail|linebreaks }} </strong></td>
+                                </tr>
+                                <tr>
+                                    <td> 문의상태 </td>
+                                    <td> {{ reservation.get_status_display }} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 from django.forms import ValidationError
 from django.core.urlresolvers import reverse
 
@@ -10,10 +11,10 @@ def min_length_10_validators(value):
 
 class House(models.Model):
     TYPE_CHOICES = (
-        ('Simple(57)', '57'),
-        ('Harmonious(65)', '65'),
-        ('Perfect(68)', '68'),
-        ('Luxury(77)', '77'),
+        ('Perfect(192)', '192'),
+        ('Charming(219)', '219'),
+        ('Elegant(238)', '238'),
+        ('Luxury(267)', '267'),
     )
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
     address = models.CharField(max_length=3, unique=True, help_text='A-1과 같은 형식으로 입력해주세요')

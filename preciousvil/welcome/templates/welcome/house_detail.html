@@ -8,54 +8,8 @@
 {% endblock %}
 
 {% block content %}
-
-  <div class="jumbotron">
-<ul class="nav navbar-collapse">
-    <nav class="nav nav-pills nav-fill center-pills">
-        <li class="active"><a href="#" style="background-color:#8aef7f">A type</a></li>
-        <li><a href="#">B type</a></li>
-        <li><a href="#">C type</a></li>
-        <li><a href="#">D type</a></li>
-    </nav>
-</ul>
-    <section class="jumbotron text-center">
-        <div style="background:transparent" class="container">
-            <p class="lead text-muted">단독형 프라이버시가 보장된 감성하우스에서의 소규모가족의 고품격라이프 </p>
-            <h1 class="jumbotron-heading">A type/Simple Living Life</h1>
-        </div>
-    </section>
-    </div>
-
-    <div class="slideshow-container">
-
-      <div class="mySlides">
-          <div class="numbertext">1 / 4</div>
-          <img src="{% static 'welcome/Atype-outer.jpg' %}" style="width:100%">
-          <div class="text"> A타입(57평형): 조감도 </div>
-      </div>
-
-      <div class="mySlides">
-        <div class="numbertext">2 / 4</div>
-        <img src="{% static 'welcome/Atype-1f.jpg' %}" style="width:100%">
-        <div class="text"> A타입(57평형): 1층 평면도/입체면도</div>
-      </div>
-
-      <div class="mySlides">
-        <div class="numbertext">3 / 4</div>
-        <img src="{% static 'welcome/Atype-2f.jpg' %}" style="width:100%">
-        <div class="text"> A타입(57평형): 2층 평면도/입체면도</div>
-      </div>
-
-      <div class="mySlides">
-        <div class="numbertext">3 / 4</div>
-        <img src="{% static 'welcome/Atype-3f.jpg' %}" style="width:100%">
-        <div class="text"> A타입(57평형): 3층 평면도/입체면도</div>
-      </div>
-
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-      </div>
+{% block housetype %}
+{% endblock %}
       <br>
 
     <div style="text-align:center">
@@ -64,6 +18,8 @@
       <span class="dot" onclick="currentSlide(3)"></span>
       <span class="dot" onclick="currentSlide(4)"></span>
     </div>
+{% block housedetail %}
+{% endblock %}
 {% endblock %}
 
     {% block extra_js %}
